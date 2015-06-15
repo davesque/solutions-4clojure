@@ -1,10 +1,5 @@
 (ns solutions-4clojure.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-
 (defn my-last [l]
   (let [dc (comp dec count)]
     (nth l (dc l))))
