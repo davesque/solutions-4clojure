@@ -8,4 +8,6 @@
   (testing "It correctly handles lists of differing length."
     (is (= (my-interleave [1 2] [:a :b :c]) [1 :a 2 :b])))
   (testing "It correctly handles empty lists."
-    (is (= (my-interleave [] [:a :b :c]) []))))
+    (is (= (my-interleave [] [:a :b :c]) [])))
+  (testing "It handles more than two lists."
+    (is (= (my-interleave [1 2 3] [:a :b :c] '(a b c)) '[1 :a a 2 :b b 3 :c c]))))
