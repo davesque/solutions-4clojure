@@ -19,3 +19,11 @@
     (is (= (my-interpose 0 [:a]) [:a])))
   (testing "It correctly handles empty lists."
     (is (= (my-interpose 0 []) []))))
+
+(deftest drop-every-nth-test
+  (testing "Drops every nth item in a list."
+    (is (= (drop-every-nth [:a :b :c] 2) [:a :c])))
+  (testing "Correctly handles empty lists."
+    (is (= (drop-every-nth [] 2) [])))
+  (testing "Correctly handles uneven lengths."
+    (is (= (drop-every-nth [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))))

@@ -59,3 +59,11 @@
         (recur
           (into l [(first xs') x])
           (rest xs'))))))
+
+(defn drop-every-nth [xs n]
+  (loop [l [] xs' xs]
+    (if (empty? xs')
+      l
+      (recur
+        (into l (take (dec n) xs'))
+        (drop n xs')))))
