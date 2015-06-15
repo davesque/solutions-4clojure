@@ -11,3 +11,11 @@
     (is (= (my-interleave [] [:a :b :c]) [])))
   (testing "It handles more than two lists."
     (is (= (my-interleave [1 2 3] [:a :b :c] '(a b c)) '[1 :a a 2 :b b 3 :c c]))))
+
+(deftest my-interpose-test
+  (testing "It interposes a list."
+    (is (= (my-interpose 0 [:a :b :c]) [:a 0 :b 0 :c])))
+  (testing "It correctly handles lists with length one."
+    (is (= (my-interpose 0 [:a]) [:a])))
+  (testing "It correctly handles empty lists."
+    (is (= (my-interpose 0 []) []))))

@@ -49,3 +49,13 @@
       (recur
         (into l (map first args'))
         (map rest args')))))
+
+(defn my-interpose [x xs]
+  (if (empty? xs)
+    xs
+    (loop [l [] xs' xs]
+      (if (= (count xs') 1)
+        (into l xs')
+        (recur
+          (into l [(first xs') x])
+          (rest xs'))))))
