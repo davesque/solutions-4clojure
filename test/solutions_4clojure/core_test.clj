@@ -35,3 +35,11 @@
     (is (= (get-the-caps "") "")))
   (testing "It should work when the string has no caps."
     (is (= (get-the-caps "arst") ""))))
+
+(deftest compress-a-sequence-test
+  (testing "It should compress a sequence."
+    (is (= (apply str (compress-a-sequence "aaaabbbbbccccc")) "abc")))
+  (testing "It should work for any list of equatable values."
+    (is (= (compress-a-sequence [[1 2] [3 4] [1 2] [1 2]]) [[1 2] [3 4] [1 2]])))
+  (testing "It should work for empty lists."
+    (is (= (compress-a-sequence []) []))))

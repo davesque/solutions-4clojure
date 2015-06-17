@@ -65,3 +65,15 @@
 
 (defn get-the-caps [s]
   (apply str (filter #(Character/isUpperCase %) s)))
+
+(defn compress-a-sequence [xs]
+  (loop [l []
+         prev-x nil
+         xs' xs]
+    (if (> (count xs') 0)
+      (let [x (first xs')]
+        (recur
+          (if (= x prev-x) l (conj l x))
+          x
+          (rest xs')))
+      l)))
