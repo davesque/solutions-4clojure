@@ -32,4 +32,6 @@
   (testing "It should filter capital letters in a string."
     (is (= (get-the-caps "arstARSTarstARST") "ARSTARST")))
   (testing "It should work with empty strings."
-    (is (= (get-the-caps "") ""))))
+    (is (= (get-the-caps "") "")))
+  (testing "It should work when the string has no caps."
+    (is (= (get-the-caps "arst") ""))))
