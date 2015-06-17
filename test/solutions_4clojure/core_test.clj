@@ -27,3 +27,9 @@
     (is (= (drop-every-nth [] 2) [])))
   (testing "Correctly handles uneven lengths."
     (is (= (drop-every-nth [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))))
+
+(deftest get-the-caps-test
+  (testing "It should filter capital letters in a string."
+    (is (= (get-the-caps "arstARSTarstARST") "ARSTARST")))
+  (testing "It should work with empty strings."
+    (is (= (get-the-caps "") ""))))

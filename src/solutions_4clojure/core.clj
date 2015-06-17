@@ -62,3 +62,6 @@
       (recur
         (into l (take (dec n) xs'))
         (drop n xs')))))
+
+(defn get-the-caps [s]
+  (apply str (filter #(Character/isUpperCase %) s)))
