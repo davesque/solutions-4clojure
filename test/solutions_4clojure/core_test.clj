@@ -43,3 +43,17 @@
     (is (= (compress-a-sequence [[1 2] [3 4] [1 2] [1 2]]) [[1 2] [3 4] [1 2]])))
   (testing "It should work for empty lists."
     (is (= (compress-a-sequence []) []))))
+
+(deftest pack-a-sequence-test
+  (testing "It should pack a sequence."
+    (is (= (map (partial apply str) (pack-a-sequence "aaaabbbbbccccc")) ["aaaa" "bbbbb" "ccccc"])))
+  (testing "It should work for any list of equatable values."
+    (is (= (pack-a-sequence [[1 2] [3 4] [1 2] [1 2]]) [[[1 2]] [[3 4]] [[1 2] [1 2]]])))
+  (testing "It should work for empty lists."
+    (is (= (pack-a-sequence []) []))))
+
+(deftest my-range-test
+  (testing "It should generate a range which is exclusive on the end."
+    (is (= (my-range 1 10) '(1 2 3 4 5 6 7 8 9))))
+  (testing "It should work for negative starting numbers."
+        (is (= (my-range -1 10) '(-1 0 1 2 3 4 5 6 7 8 9)))))

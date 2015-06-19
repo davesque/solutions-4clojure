@@ -77,3 +77,15 @@
           x
           (rest xs')))
       l)))
+
+(defn pack-a-sequence [xs]
+  (partition-by identity xs))
+
+(defn duplicate-a-sequence [xs]
+  (apply concat (map (partial repeat 2) xs)))
+
+(defn replicate-a-sequence [xs n]
+  (apply concat (map (partial repeat n) xs)))
+
+(defn my-range [x y]
+  (reductions + x (repeat (dec (- y x)) 1)))
