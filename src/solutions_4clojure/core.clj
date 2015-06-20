@@ -89,3 +89,21 @@
 
 (defn my-range [x y]
   (reductions + x (repeat (dec (- y x)) 1)))
+
+(defn my-fact [n]
+  (reduce *' 1 (range 1 (inc n))))
+
+(defn has-nil-key [k m]
+  (and (contains? m k) (nil? (m k))))
+
+(for [[x y] (partition 2 (range 20))]
+  (+ x y))
+
+(defn map-defaults [d ks]
+  (apply hash-map (interleave ks (repeat d))))
+
+(defn my-split-at [i coll]
+  [(take i coll) (drop i coll)])
+
+(def flipped-syntax (-> [1 2 3] reverse rest first))
+(def partial-flipped-syntax (->> [1 2 3] (take 2) (drop 1) first))
